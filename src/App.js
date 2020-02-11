@@ -35,10 +35,9 @@ class  App extends React.Component {
 
   render(){
     return( 
-      <div>
+      <div className="d-flex justify-content-center">
         <div className="App">
-        <img src=""  />
-        <div className="app-title">
+        <div className="app-title mt-5">
           <h2>What's in your bucket list?</h2>
         </div>
         <input onChange={(e) => this.setState({text: e.target.value})} value={this.state.text} className="form-control" type="text" placeholder="What you want TODO?" />

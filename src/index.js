@@ -6,9 +6,9 @@ import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {createStore} from 'redux'
 import {Provider } from 'react-redux'
-import reducer from './reducers/index'
+import reminder from './reducers/index'
 
-const store = createStore(reducer);
+const store = createStore(reminder);
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 

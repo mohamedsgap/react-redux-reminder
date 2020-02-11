@@ -1,5 +1,7 @@
  const ADD_REMINDER = 'ADD_REMINDER'
  export const CLEAR_REMINDER = 'CLEAR_REMINDER'
+ export const CLEAR_ALL_REMINDER = 'CLEAR_ALL_REMINDER'
+
 
  export default ADD_REMINDER
  

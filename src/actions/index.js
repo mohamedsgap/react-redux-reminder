@@ -1,4 +1,4 @@
-import {ADD_REMINDER} from '../types';
+import ADD_REMINDER from '../types';
 
 export const addReminder = (text, date) => {
     const action = {

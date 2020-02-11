@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {addReminder, clearReminder} from './actions'
+import {addReminder, clearReminder, clearAllReminder} from './actions'
 import {connect} from  'react-redux'
 
 class  App extends React.Component {
@@ -37,11 +37,14 @@ class  App extends React.Component {
         <div className="app-title">
           <h2>What's in your bucket list?</h2>
         </div>
-        <input onChange={(e) => this.setState({text: e.target.value})} className="form-control" type="text" placeholder="What you want TODO?" />
-        <input  onChange={(e) => this.setState({date: e.target.value})} className="form-control" type="datetime-local" />
-        <button onClick={()=> this.props.addReminder(this.state.text, this.state.date)} className="btn btn-primary btn-block">ADD</button>
+        <input onChange={(e) => this.setState({text: e.target.value})} value={this.state.text} className="form-control" type="text" placeholder="What you want TODO?" />
+        <input  onChange={(e) => this.setState({date: e.target.value})} value={this.state.date} className="form-control" type="datetime-local" />
+        <button onClick={()=> {
+          this.props.addReminder(this.state.text, this.state.date) 
+          this.setState({text: '', date: ''})}} 
+          className="btn btn-primary btn-block">ADD</button>
         {this.renderReminders()}
-        <button className="btn btn-danger btn-block">CLEAR</button>
+        <button  onClick={()=>this.props.clearAllReminder()} className="btn btn-danger btn-block">CLEAR ALL</button>
         </div>
       </div>
     );
@@ -61,4 +64,4 @@ function mapStateToProps(state) {
   }
 }
 */
-export default connect(state => {return {reminder : state}}, {addReminder, clearReminder})(App);
+export default connect(state => {return {reminder : state}}, {addReminder, clearReminder,clearAllReminder })(App);

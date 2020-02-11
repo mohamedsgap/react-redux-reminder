@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {addReminder} from './actions'
+import {addReminder, clearReminder} from './actions'
 import {connect} from  'react-redux'
 
 class  App extends React.Component {
@@ -19,6 +19,7 @@ class  App extends React.Component {
                 <li key={remind.id} className="list-group-item">
                   <div>{remind.text}</div>
                   <div>{remind.date}</div>
+                  <div className="remove btn btn-danger" onClick={()=> this.props.clearReminder(remind.id)}>X</div>
                 </li>
                 )
               })
@@ -60,4 +61,4 @@ function mapStateToProps(state) {
   }
 }
 */
-export default connect(state => {return {reminder : state}}, {addReminder})(App);
+export default connect(state => {return {reminder : state}}, {addReminder, clearReminder})(App);
